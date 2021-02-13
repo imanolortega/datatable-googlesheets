@@ -1,38 +1,175 @@
-.App {
-  text-align: center;
+@import url('https://rsms.me/inter/inter.css');
+html,
+body {
+    font-family: 'Inter', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@supports (font-variation-settings: normal) {
+    html {
+        font-family: 'Inter var', sans-serif;
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html {
+    scroll-behavior: smooth;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+hr.solid {
+    border-top: 2px solid #999;
 }
 
-.App-link {
-  color: #61dafb;
+.blank-container {
+    height: 5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.div-float {
+    position: fixed !important;
+    padding-top: 5.8em;
+    right: 0.9em;
+    z-index: 2;
+}
+
+.nav-dark {
+    background-color: #0B1D33;
+}
+
+.dropdown .btn {
+    color: white;
+}
+
+.dropdown .btn:hover {
+    color: white;
+}
+
+.btn-av {
+    background-color: #0D384A;
+    border-color: #0D384A;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-av:hover {
+    background-color: #0e3749;
+    border-color: #0e3749;
+}
+
+.btn-av-soft {
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: 0.3s;
+}
+
+.btn-outline-success {
+    border-color: #2A6DBF !important;
+    color: #2A6DBF !important;
+    font-weight: 600 !important;
+}
+
+.btn-outline-success:hover {
+    border-color: #2A6DBF !important;
+    background-color: #2A6DBF !important;
+    color: white !important;
+}
+
+.page-link {
+    color: #0D384A !important;
+    font-weight: 500;
+}
+
+.page-link:hover {
+    color: #0D384A !important;
+}
+
+.page-item.active .page-link {
+    background-color: #0D384A !important;
+    border-color: #0D384A !important;
+    color: white !important
+}
+
+.av-text-main {
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+.nav-link:hover {
+    color: rgb(211, 211, 211) !important;
+}
+
+.header-table-mobile {
+    display: none !important;
+}
+
+.hidden-desktop {
+    display: none !important;
+}
+
+a:hover {
+    color: rgb(211, 211, 211) !important;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+.dropdown-item {
+    color: #0B1D33 !important;
+}
+
+.dropdown-item:hover {
+    color: #0B1D33 !important;
+}
+
+@media (max-width:991px) {
+    .table-scroll {
+        overflow: scroll;
+    }
+}
+
+@media (max-width:767px) {
+    .table-scrool {
+        overflow: scroll;
+    }
+    .header-table-desktop {
+        display: none !important;
+    }
+    .header-table-mobile {
+        display: flex !important;
+    }
+    .hidden-mobile {
+        display: none !important;
+    }
+    .hidden-desktop {
+        display: flex !important;
+    }
+    .footer-av {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    .label-hidden {
+        display: none;
+    }
 }

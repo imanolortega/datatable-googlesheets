@@ -1,0 +1,33 @@
+export const lightTheme = {
+  body: '#fafafa',
+  text: '#363537',
+  toggleBorder: '#FFF',
+  gradient: '#e2e2e2',
+  accordionBg: '#e7e6e6',
+  btnSoft: '#0B1D33',
+  btnSoftBg: '#fafafa',
+  btnSoftBgHover: '#e2e2e2',
+  titleMain: '#0D384A',
+  scrollButton: '#0D384A',
+  cardBody: '#fff',
+  hr: '#e2e2e2',
+  linkFooter:  '#0D384A',
+  linkFooterHover: '#092531',
+}
+
+export const darkTheme = {
+  body: '#1f2d3d',
+  text: '#f3f9fb',
+  toggleBorder: '#6B8096',
+  gradient: '#f3f9fb',
+  accordionBg: '#0B1D33',
+  btnSoft: '#fff;',
+  btnSoftBg: '#1f2d3d',
+  btnSoftBgHover: '#17222e',
+  titleMain: '#fff',
+  scrollButton: '#fff',
+  cardBody: '#0B1D33',
+  hr: '#fafafa',
+  linkFooter:  '#f3f9fb',
+  linkFooterHover: '#e2e2e2',
+}
