@@ -1,12 +1,12 @@
-@import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 html,
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
     html {
-        font-family: 'Inter var', sans-serif;
+        font-family: 'Nunito', sans-serif;
     }
 }
 
@@ -16,6 +16,22 @@ html {
 
 hr.solid {
     border-top: 2px solid #999;
+}
+
+.nav-dark {
+    color: white;
+}
+
+.nav-dark:hover {
+    color: #fafafa;
+}
+
+.logo {
+    width: 7em;
+}
+
+.blank-container {
+    height: 3em;
 }
 
 .blank-container {
@@ -30,7 +46,7 @@ hr.solid {
 }
 
 .nav-dark {
-    background-color: #0B1D33;
+    background-color: #1A183B;
 }
 
 .dropdown .btn {
@@ -42,8 +58,8 @@ hr.solid {
 }
 
 .btn-av {
-    background-color: #0D384A;
-    border-color: #0D384A;
+    background-color: #302d6d;
+    border-color: #302d6d;
     color: white;
     cursor: pointer;
     display: inline-block;
@@ -61,8 +77,8 @@ hr.solid {
 }
 
 .btn-av:hover {
-    background-color: #0e3749;
-    border-color: #0e3749;
+    background-color: #2a2763;
+    border-color: #2a2763;
 }
 
 .btn-av-soft {
@@ -82,29 +98,29 @@ hr.solid {
 }
 
 .btn-outline-success {
-    border-color: #2A6DBF !important;
-    color: #2A6DBF !important;
+    border-color: #6454b1 !important;
+    color: #6454b1 !important;
     font-weight: 600 !important;
 }
 
 .btn-outline-success:hover {
-    border-color: #2A6DBF !important;
-    background-color: #2A6DBF !important;
+    border-color: #6454b1 !important;
+    background-color: #6454b1 !important;
     color: white !important;
 }
 
 .page-link {
-    color: #0D384A !important;
+    color: #302d6d !important;
     font-weight: 500;
 }
 
 .page-link:hover {
-    color: #0D384A !important;
+    color: #302d6d !important;
 }
 
 .page-item.active .page-link {
-    background-color: #0D384A !important;
-    border-color: #0D384A !important;
+    background-color: #302d6d !important;
+    border-color: #302d6d !important;
     color: white !important
 }
 
@@ -136,11 +152,11 @@ a:hover {
 }
 
 .dropdown-item {
-    color: #0B1D33 !important;
+    color: #1A183B !important;
 }
 
 .dropdown-item:hover {
-    color: #0B1D33 !important;
+    color: #1A183B !important;
 }
 
 @media (max-width:991px) {

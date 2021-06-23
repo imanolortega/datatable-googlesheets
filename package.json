@@ -1,5 +1,5 @@
 {
-    "name": "datatable",
+    "name": "datatable-virtual-class",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -23,7 +23,7 @@
         "web-vitals": "^0.2.4",
         "xlsx": "^0.16.9"
     },
-    "homepage": "http://prueba.faya.com.ar/",
+    "homepage": "http://clasesvirtuales.faya.com.ar/",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",

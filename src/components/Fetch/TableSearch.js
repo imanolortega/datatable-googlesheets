@@ -2,94 +2,95 @@ import React, { useEffect, useState, useMemo } from "react";
 import Header from "../Datatable/Header";
 import { Pagination, Search } from "../Datatable";
 import useFullPageLoader from "../../hooks/useFullPageLoader";
-import Tabletop from 'tabletop'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { ExportExcel } from "../ExcelDownloader/ExcelDownloader";
+import Tabletop from "tabletop";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const Agronomia = () => {
-  const [comments, setComments] = useState([]);
+const TableSearch = (props) => {
+  const [data, setdata] = useState([]);
   const [loader, showLoader, hideLoader] = useFullPageLoader();
   const [totalItems, setTotalItems] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
   const [sorting, setSorting] = useState({ field: "", order: "" });
 
+  const keyApi = props.keyApi;
+  const name = props.name;
+
   const ITEMS_PER_PAGE = 8;
 
   const headers = [
-    { name: "Cátedra", field: "Materia", sortable: true },
-    { name: "Docente", field: "Docente", sortable: true },
-    { name: "Email", field: "Email", sortable: false },
-    { name: "Tel", field: "Tel", sortable: false },
-    { name: "Plataforma", field: "Plataforma", sortable: false }
+    { name: "Asignatura", field: "Asignatura", sortable: true },
+    { name: "Días", field: "Dias", sortable: true },
+    { name: "Horario", field: "Horario", sortable: false },
+    { name: "Enlace", field: "Enlace", sortable: false },
+    { name: "Jefe de Cátedra", field: "JefeCatedra", sortable: true },
+    { name: "Correo", field: "Correo", sortable: false },
   ];
 
   useEffect(() => {
     showLoader();
     Tabletop.init({
-      key: "1FtRLOutfvjladf8oVYokWQ6g_-qzKtBY15NFhPFbE2c",
-      simpleSheet: true
-    })
-      .then((data) => {
-        hideLoader()
-        setComments(data)
-      })
+      key: keyApi,
+      simpleSheet: true,
+    }).then((data) => {
+      hideLoader();
+      setdata(data);
+    });
   }, []);
 
-  const commentsData = useMemo(() => {
-    let computedComments = comments;
+  const dataData = useMemo(() => {
+    let computeddata = data;
 
     if (search) {
-      computedComments = computedComments.filter(
-        comment =>
-          comment.Materia.toLowerCase().includes(search.toLowerCase()) ||
-          comment.Docente.toLowerCase().includes(search.toLowerCase()) ||
-          comment.Email.toLowerCase().includes(search.toLowerCase()) ||
-          comment.Plataforma.toLowerCase().includes(search.toLowerCase())
+      computeddata = computeddata.filter(
+        (data) =>
+          data.Asignatura.toLowerCase().includes(search.toLowerCase()) ||
+          data.Dias.toLowerCase().includes(search.toLowerCase()) ||
+          data.Horario.toLowerCase().includes(search.toLowerCase()) ||
+          data.Enlace.toLowerCase().includes(search.toLowerCase()) ||
+          data.JefeCatedra.toLowerCase().includes(search.toLowerCase()) ||
+          data.Correo.toLowerCase().includes(search.toLowerCase())
       );
     }
 
-    setTotalItems(computedComments.length);
+    setTotalItems(computeddata.length);
 
-    //Sorting comments
+    //Sorting data
     if (sorting.field) {
       const reversed = sorting.order === "asc" ? 1 : -1;
-      computedComments = computedComments.sort(
-        (a, b) =>
-          reversed * a[sorting.field].localeCompare(b[sorting.field])
+      computeddata = computeddata.sort(
+        (a, b) => reversed * a[sorting.field].localeCompare(b[sorting.field])
       );
     }
 
     //Current Page slice
-    return computedComments.slice(
+    return computeddata.slice(
       (currentPage - 1) * ITEMS_PER_PAGE,
       (currentPage - 1) * ITEMS_PER_PAGE + ITEMS_PER_PAGE
     );
-  }, [comments, currentPage, search, sorting]);
+  }, [data, currentPage, search, sorting]);
 
   return (
     <>
       <div className="d-flex justify-content-center mt-3">
         <div className="blank-container"></div>
         <div className="m-3 col-12">
-          <div
-            className="accordion"
-          >
+          <div className="accordion">
             <div className="row justify-content-between header-table-desktop">
               <div className="col">
-                <h3>Ing. Agronómica</h3>
+                <h3>{name}</h3>
               </div>
               <div className="col d-flex justify-content-center">
                 <Pagination
                   total={totalItems}
                   itemsPerPage={ITEMS_PER_PAGE}
                   currentPage={currentPage}
-                  onPageChange={page => setCurrentPage(page)}
+                  onPageChange={(page) => setCurrentPage(page)}
                 />
               </div>
               <div className="col d-flex flex-row-reverse">
                 <Search
-                  onSearch={value => {
+                  onSearch={(value) => {
                     setSearch(value);
                     setCurrentPage(1);
                   }}
@@ -102,7 +103,7 @@ const Agronomia = () => {
               </div>
               <div className="col d-flex flex-row-reverse justify-content-center mt-3">
                 <Search
-                  onSearch={value => {
+                  onSearch={(value) => {
                     setSearch(value);
                     setCurrentPage(1);
                   }}
@@ -113,7 +114,7 @@ const Agronomia = () => {
                   total={totalItems}
                   itemsPerPage={ITEMS_PER_PAGE}
                   currentPage={currentPage}
-                  onPageChange={page => setCurrentPage(page)}
+                  onPageChange={(page) => setCurrentPage(page)}
                 />
               </div>
             </div>
@@ -123,28 +124,22 @@ const Agronomia = () => {
             <table className="table table-striped">
               <Header
                 headers={headers}
-                onSorting={(field, order) =>
-                  setSorting({ field, order })
-                }
+                onSorting={(field, order) => setSorting({ field, order })}
               />
               <tbody>
-                {commentsData.map(comment => (
+                {dataData.map((data) => (
                   <tr>
-                    <td>{comment.Materia}</td>
-                    <td>{comment.Docente}</td>
-                    <td>{comment.Email}</td>
-                    <td>{comment.Tel}</td>
-                    <td>{comment.Plataforma}</td>
+                    <td>{data.Asignatura}</td>
+                    <td>{data.Dias}</td>
+                    <td>{data.Horario}</td>
+                    <td>{data.Enlace}</td>
+                    <td>{data.JefeCatedra}</td>
+                    <td>{data.Correo}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-
           </div>
-          <div className="mt-2">
-            <ExportExcel csvData={comments} fileName={'aulas-virtuales-agronomia'} />
-          </div>
-
         </div>
       </div>
       {loader}
@@ -152,4 +147,4 @@ const Agronomia = () => {
   );
 };
 
-export default Agronomia;
+export default TableSearch;

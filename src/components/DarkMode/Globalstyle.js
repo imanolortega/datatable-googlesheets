@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   *,
@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito', sans-serif;
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     transition: all 0.25s linear;
@@ -65,4 +65,12 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.linkFooterHover} !important;
   }
 
-  `
+  .link-mail{
+    color: ${({ theme }) => theme.linkMail} !important;
+  }
+
+  .link-mail:hover{
+    color: ${({ theme }) => theme.linkMailHover} !important;
+  }
+
+  `;
